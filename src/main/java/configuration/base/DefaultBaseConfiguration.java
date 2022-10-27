@@ -1,7 +1,7 @@
 package configuration.base;
 
 import core.configuration.baseConfiguration.BaseConfiguration;
-import org.apache.log4j.LogManager;
+import org.apache.logging.log4j.LogManager;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -19,6 +19,8 @@ public DefaultBaseConfiguration(){
         url = properties.getProperty("url");
         userLogin = properties.getProperty("login");
         userPassword = properties.getProperty("password");
+        screenshotFileType= properties.getProperty("screenshotFileType");
+        screenshotPath= properties.getProperty("screenshotPath");
     }catch (IOException e) {
         LogManager.getLogger(DefaultBaseConfiguration.class).error("Problem with configuration" + e);
     }

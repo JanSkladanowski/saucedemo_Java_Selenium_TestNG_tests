@@ -5,9 +5,11 @@ import core.configuration.baseConfiguration.BaseConfigurationFactory;
 import core.configuration.driverConfiguration.DriverConfiguration;
 import core.configuration.driverConfiguration.DriverConfigurationFactory;
 import org.openqa.selenium.WebDriver;
+import org.testng.ITestResult;
 import org.testng.annotations.*;
 import pages.HomePage;
 import pages.LoginPage;
+import utils.Screenshot;
 
 public abstract class DefaultTestConfiguration {
 
@@ -17,6 +19,7 @@ public abstract class DefaultTestConfiguration {
     protected String url;
     protected LoginPage loginPage;
     protected HomePage homePage;
+    protected  Screenshot screenshot;
 
     @BeforeClass
     public void setUpClass(){
@@ -42,10 +45,14 @@ public abstract class DefaultTestConfiguration {
     }
 
     @AfterTest
-    public void tearDownTest(){driver.quit();}
+    public void tearDownTest() { driver.quit(); }
 
     @AfterMethod
-    public void tearDownMethod() {
+    public void tearDownMethod(ITestResult result) {
+        if (ITestResult.FAILURE == result.getStatus()){
+            screenshot = new Screenshot();
+            screenshot.captureScreenshot(driver, baseConfiguration);
+        }
         driver.manage().deleteAllCookies();
         driver.navigate().to(url);
     }
