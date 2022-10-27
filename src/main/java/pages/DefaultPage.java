@@ -11,7 +11,7 @@ import java.time.Duration;
 public abstract class DefaultPage {
 
     protected WebDriver driver;
-    protected Duration timeout = Duration.ofSeconds(10);
+    protected Duration timeout = Duration.ofSeconds(4);
 
     public DefaultPage(WebDriver driver) {this.driver = driver;}
 

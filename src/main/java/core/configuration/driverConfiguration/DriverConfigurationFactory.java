@@ -2,7 +2,7 @@ package core.configuration.driverConfiguration;
 
 import configuration.driverConfiguration.drivers.ChromeDriverConfiguration;
 import configuration.driverConfiguration.drivers.FirefoxDriverConfiguration;
-import org.apache.log4j.LogManager;
+import org.apache.logging.log4j.LogManager;
 
 public class DriverConfigurationFactory {
 

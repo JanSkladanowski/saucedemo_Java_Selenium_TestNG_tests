@@ -10,8 +10,8 @@ public abstract class DefaultDriverConfiguration {
     public static WebDriver configurationDefaultDriver(WebDriver driver) {
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         return driver;
     }
 }

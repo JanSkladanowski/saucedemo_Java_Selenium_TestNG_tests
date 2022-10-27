@@ -6,6 +6,8 @@ public abstract class BaseConfiguration {
     protected String url;
     protected String userLogin;
     protected String userPassword;
+    protected String screenshotFileType;
+    protected String screenshotPath;
 
     public String getProtocol() {return protocol;}
 
@@ -19,4 +21,11 @@ public abstract class BaseConfiguration {
         return userPassword;
     }
 
+    public String getScreenshotFileType() {
+        return screenshotFileType;
+    }
+
+    public String getScreenshotPath() {
+        return screenshotPath;
+    }
 }
